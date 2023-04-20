@@ -22,14 +22,14 @@ async function mailer(recieveremail, code) {
         secure: false, // true for 465, false for other ports
         requireTLS: true,
         auth: {
-            user: "used2.codershub@gmail.com", // generated ethereal user
-            pass: "wxvzhpobedwcdvjf", // generated ethereal password
+            user: "agroinformastics@gmail.com", // generated ethereal user
+            pass: "slineikoigduwfpt", // generated ethereal password
         },
     });
 
     // send mail with defined transport object
     let info = await transporter.sendMail({
-        from: 'used2.codershub@gmail.com', // sender address
+        from: 'agroinformastics@gmail.com', // sender address
         to: `${recieveremail}`, // list of receivers
         subject: "Signup Verification", // Subject line
         text: `Your Verification Code is ${code}`, // plain text body
@@ -96,11 +96,11 @@ router.post('/verify', (req, res) => {
                     }
                 ]
                 await mailer(email, VerificationCode);
-                res.send({ message: "Verification Code Sent to your Email", udata: user });
+                res.send({ message: "Verification Code Sent to your Email", udata: user});
             }
             catch (err) {
                 console.log(err);
-            }
+            }       
         })
 
 
